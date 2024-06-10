@@ -1,12 +1,12 @@
 package com.integration.sample.handler;
 
-import javax.validation.Validator;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
-import com.integration.sample.model.dto.SomeObject;
+import com.integration.sample.model.dto.SomeClass;
+
+import jakarta.validation.Validator;
 
 @Component
 public class AppValidator {
@@ -14,7 +14,7 @@ public class AppValidator {
 	@Autowired
 	private Validator validator;
 
-	public SomeObject validate(final SomeObject requestPayload) {
+	public SomeClass validate(final SomeClass requestPayload) {
 
 		var validations = validator.validate(requestPayload);
 		if (!ObjectUtils.isEmpty(validations))
